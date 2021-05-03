@@ -34,6 +34,12 @@
       console.log('keypress');
     });
 
+    list.addEventListener('click',(event)=>{
+      if(event.target.className === "deleteButton"){
+        console.log(event.target.parentElement);
+        list.removeChild(event.target.parentElement)
+      }
+    })
 
     function onAdd(){
       const val = textInput.value;
@@ -48,11 +54,12 @@
       content.innerHTML = `<span>${val}</span>`;
       deleteButton.className = 'deleteButton';
       deleteButton.innerHTML = '삭제';
+      /*
       deleteButton.addEventListener('click',(event)=>{
         console.log("deleteButton clicked!");
         console.log(event.srcElement.parentElement);
         list.removeChild(event.srcElement.parentElement)
-      });
+      });*/
       li.appendChild(content);
       li.appendChild(deleteButton);
       list.appendChild(li);
